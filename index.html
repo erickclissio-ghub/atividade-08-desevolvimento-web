@@ -4,140 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PS2 Classics Collection</title>
-    <style>
-        :root {
-            --ps-blue: #003791;
-            --ps-light-blue: #6f878f;
-            --dark-bg: #050505;
-            --card-bg: #120f1f;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            color: var(--ps-blue);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 55, 145, 0.5);
-        }
-        #search-bar {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border-radius: 25px;
-            border: 2px solid var(--ps-blue);
-            background: #222;
-            color: white;
-            margin-bottom: 40px;
-            outline: none;
-        }
-        #game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1200px;
-        }
-        .game-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            border-bottom: 4px solid var(--ps-blue);
-            transition: transform 0.3s, border-color 0.3s;
-            cursor: pointer;
-        }
-
-        .game-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--ps-light-blue);
-            background: #202020;
-        }
-
-        .game-card h3 {
-            margin: 0 0 10px 0;
-            color: var(--ps-light-blue);
-        }
-
-        .game-card p {
-            font-size: 0.9rem;
-            color: #aaa;
-            margin: 5px 0;
-        }
-
-        .badge {
-            background: var(--ps-blue);
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h1>PlayStation 2</h1>
-        <p>A era dos jogos de videogames </p>
+        <p>A era dos jogos de videogames</p>
     </header>
 
     <input type="text" id="search-bar" placeholder="Pesquisar jogo..." onkeyup="searchGame()">
 
-    <div id="game-grid">
-    </div>
+    <div id="game-grid"></div>
 
-    <script>
-        const games = [
-            { title: "GTA San Andreas", genre: "Ação/Mundo Aberto", year: 2004 },
-            { title: "God of War II", genre: "Ação/Hack n Slash", year: 2007 },
-            { title: "Resident Evil 4", genre: "Survival Horror", year: 2005 },
-            { title: "Shadow of the Colossus", genre: "Aventura", year: 2005 },
-            { title: "Need for Speed Most Wanted", genre: "Corrida", year: 2005 },
-            { title: "Metal Gear Solid 3", genre: "Infiltração", year: 2004 },
-            { title: "Dragon Ball Z: Budokai Tenkaichi 3", genre: "Luta", year: 2007 },
-            { title: "Silent Hill 2", genre: "Terror Psicológico", year: 2001 }
-        ];
-
-        const grid = document.getElementById('game-grid');
-
-        function displayGames(gameList) {
-            grid.innerHTML = "";
-            gameList.forEach(game => {
-                const card = `
-                    <div class="game-card">
-                        <h3>${game.title}</h3>
-                        <p>Gênero: ${game.genre}</p>
-                        <p>Lançamento: ${game.year}</p>
-                        <span class="badge">PS2 Original</span>
-                    </div>
-                `;
-                grid.innerHTML += card;
-            });
-        }
-
-        function searchGame() {
-            const input = document.getElementById('search-bar').value.toLowerCase();
-            const filteredGames = games.filter(game => 
-                game.title.toLowerCase().includes(input)
-            );
-            displayGames(filteredGames);
-        }
-        displayGames(games);
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
